@@ -1,0 +1,18 @@
+# Generated data
+data/applications.db
+data/applications.xlsx
+data/applications_latest.xlsx
+data/*_cookies.json
+data/debug_*.png
+
+# Logs
+logs/agent.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/

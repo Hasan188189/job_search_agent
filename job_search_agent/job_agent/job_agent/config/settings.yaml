@@ -1,0 +1,74 @@
+# config/settings.yaml
+# =====================
+# Edit this file with your personal details before running the agent.
+
+# ─── YOUR PROFILE ────────────────────────────────────────────────────────────
+profile:
+  name: "Your Full Name"
+  email: "you@example.com"
+  phone: "+91-9999999999"
+  location: "Bangalore, India"
+  linkedin_url: "https://linkedin.com/in/yourprofile"
+  github_url: "https://github.com/yourusername"
+  portfolio_url: ""                          # optional
+  resume_path: 'C:\path\to\your\resume.pdf'  # full path to your resume PDF
+  years_of_experience: 1
+  current_title: "Your Current Title"
+  target_title: "Your Target Title"
+  skills:
+    - Skill1
+    - Skill2
+    - Skill3
+  min_salary: 500000                         # in INR (annual), 0 = no filter
+  preferred_work_type: "onsite"              # remote | hybrid | onsite
+
+# ─── AI SETTINGS ─────────────────────────────────────────────────────────────
+ai:
+  anthropic_api_key: ""                          # only needed if generate_cover_letter is true
+  model: "claude-sonnet-4-6"
+  generate_cover_letter: false                   # set true to generate AI cover letters (requires API key)
+  cover_letter_tone: "professional"              # professional | conversational | enthusiastic
+  tailor_resume: false                           # experimental: AI rewrites resume bullet points
+
+# ─── PLATFORM CREDENTIALS ────────────────────────────────────────────────────
+platforms:
+
+  linkedin:
+    enabled: true
+    email: "you@example.com"
+    password: "YOUR_PASSWORD"               # stored locally, never sent anywhere
+    easy_apply_only: true
+    headless: false                          # false = see the browser while it runs
+
+  indeed:
+    enabled: false
+    email: "you@example.com"
+    password: "YOUR_PASSWORD"
+    publisher_id: ""                        # get free key at https://ads.indeed.com/jobroll/xmlfeed
+    headless: true
+
+  naukri:
+    enabled: true
+    email: "you@example.com"
+    password: "YOUR_PASSWORD"
+    headless: false
+
+# ─── SEARCH FILTERS ──────────────────────────────────────────────────────────
+filters:
+  exclude_companies:                        # skip these employers
+    - "TCS"
+    - "Infosys"
+  exclude_keywords:                         # skip jobs containing these words
+    - "10+ years"
+    - "unpaid"
+  min_match_score: 0.3                      # 0-1, how closely job must match your profile
+  max_applications_per_run: 10             # safety cap
+
+# ─── TRACKER ─────────────────────────────────────────────────────────────────
+tracker:
+  db_path: "data/applications.db"
+  notify_email: ""                          # get email summary (requires SMTP below)
+  smtp_host: ""
+  smtp_port: 587
+  smtp_user: ""
+  smtp_password: ""
